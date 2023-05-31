@@ -1,0 +1,190 @@
+html,
+body {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+body {
+  @extend %poppins;
+  font-weight: 400;
+  background-color: #ffffff;
+  color: $black-4;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 970px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.title {
+  font-size: 49px;
+  line-height: 1.33;
+  font-weight: 400;
+  @include md($mobile) {
+    font-size: 36px;
+  }
+
+  @include md($phone) {
+    font-size: 28px;
+  }
+
+  @include land($mobile) {
+    font-size: 36px;
+  }
+}
+
+.highlight {
+  color: $green;
+  position: relative;
+  border-bottom: 4px solid $green;
+
+  &--orange {
+    color: $orange;
+    border-bottom: 4px solid $orange;
+  }
+}
+
+.link {
+  display: inline-block;
+  padding: 8px 25px 1px 30px;
+  @include md($mobile) {
+    padding: 5px 15px 1px 15px;
+  }
+
+  @include land($mobile) {
+    padding: 5px 15px 1px 15px;
+  }
+
+  &__top {
+    display: block;
+    font-size: 23px;
+    line-height: 1;
+    @include md($mobile) {
+      font-size: 18px;
+    }
+  }
+
+  &__desc {
+    font-size: 14px;
+    line-height: 1.64;
+    text-transform: capitalize;
+    @include md($mobile) {
+      font-size: 12px;
+    }
+  }
+}
+
+.burger {
+  order: 3;
+  position: relative;
+  z-index: 10;
+
+  @include md($tablet) {
+    @include burger;
+    order: 4;
+  }
+}
+
+.lock {
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
+  }
+}
+
+.logo {
+  position: relative;
+  z-index: 10;
+  &__img {
+    object-fit: cover;
+  }
+}
+
+.form {
+  display: flex;
+  line-height: 1.5;
+
+  &__input {
+    background-image: url('../images/sprite.svg#search');
+    border-radius: 3px 0 0 3px;
+    outline: transparent;
+    background-repeat: no-repeat;
+
+    @include md($phone) {
+      background-image: none;
+    }
+
+    &::placeholder {
+      color: #e0e0e0;
+    }
+  }
+
+  &__button {
+    color: #e0e0e0;
+    border-radius: 0 3px 3px 0;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+  @include md($tablet) {
+    display: block;
+  }
+}
+
+
+.hidden {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  position: absolute;
+}
